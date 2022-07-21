@@ -1,0 +1,44 @@
+{
+  "name": "ffrs",
+  "version": "1.0.0",
+  "description": "Template",
+  "main": "app.js",
+  "dependencies": {
+    "@forkjs/group-router": "^1.0.5",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.0",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-fileupload": "^1.4.0",
+    "express-react-views": "^0.11.0",
+    "express-session": "^1.17.3",
+    "helmet-crossdomain": "^0.5.0",
+    "http-errors": "^2.0.0",
+    "ip": "^1.1.8",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "morgan": "^1.10.0",
+    "node-fetch": "^3.2.6",
+    "nodemailer": "^6.7.7",
+    "nodemon": "^2.0.18",
+    "oracledb": "^5.4.0",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.3.7",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.1"
+  },
+  "scripts": {
+    "test": "sample",
+    "watch": "nodemon app.js"
+  },
+  "author": "System and Application Development",
+  "license": "ISC"
+}
