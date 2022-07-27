@@ -5,7 +5,10 @@ const controller  = require('../Controller');
 
 // GROUP ROUTE
 route.group('/ffrs',()=>{    
+    
     route.get('/users',controller.getInfo)       
+    
+    route.post('/test',controller.getTest)       
   
 })
 

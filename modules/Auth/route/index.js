@@ -6,6 +6,7 @@ const controller  = require('../Controller');
 // GROUP ROUTE
 route.group('/auth',()=>{    
     route.post('/login',controller.login)       
+    route.get('/test',controller.getTest)       
     route.get('/user-info/:accessToken',controller.getAccessToken)       
   
 })

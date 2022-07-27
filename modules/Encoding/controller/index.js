@@ -126,4 +126,39 @@ methods.getBarangay  = async (req,res)=>{
     }
 }
 
+
+methods.getCrops  = async (req,res)=>{
+
+    try{
+
+        let classification = req.params.classification;
+        console.warn(req.cookies.auth);
+        
+        let getCropAnimals = '';
+        if(classification){
+            getCropAnimals = await connection.createQueryBuilder()
+            .select()                   
+            .from('CROPS_ANIMALS','CA')  
+            .where('CLASSIFICATION = :classification',{classification:classification ? classification : '1'})                        
+            .getRawMany();
+        }else{
+
+        
+         getCropAnimals = await connection.createQueryBuilder()
+            .select()                   
+            .from('CROPS_ANIMALS','CA')                   
+            .getRawMany();
+        
+        }
+              
+        if(getCropAnimals.length > 0){
+            return res.send({status:true,data:getCropAnimals});
+        }
+        
+    }catch(error){
+        console.warn(error);
+        return res.send({status:false,message:error});
+    }
+}
+
 module.exports = methods;

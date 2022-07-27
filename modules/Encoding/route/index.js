@@ -5,6 +5,7 @@ const controller  = require('../Controller');
 
 // GROUP ROUTE
 route.group('/ffrs',()=>{    
+    route.get('/get-crops/:classification?',controller.getCrops)       
     route.get('/get-regions',controller.getRegions)       
     route.get('/get-provinces/:region_code',controller.getProvinces)       
     route.get('/get-municipalities/:region_code/:province_code',controller.getMunicipalities)       

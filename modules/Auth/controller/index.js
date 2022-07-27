@@ -16,7 +16,7 @@ methods.login  = async (req,res)=>{
         let password  =req.body.password;
 
         
-        let generateToken = jwt.sign({ foo: 'bar' }, uuid(),{ expiresIn: "2h"});
+        let generateToken = jwt.sign({ foo: 'secret' }, uuid(),{ expiresIn: "2h"});
 
         
 
@@ -67,7 +67,7 @@ methods.getAccessToken  = async (req,res)=>{
 
     try{
 
-        let accessToken  =req.params.accessToken;
+        let accessToken  = req.params.accessToken;
         let getAccessToken = await connection.createQueryBuilder().select()       
                                                 .from('USERS','fa')
                                                 .where(`access_token = :accessToken`,{accessToken:accessToken}).getRawOne();                    
@@ -80,6 +80,30 @@ methods.getAccessToken  = async (req,res)=>{
     }catch(error){
         console.warn(error);
         return res.send({status:true,message:error.response});
+    }
+}
+
+
+
+methods.getTest  = async (req,res)=>{
+    
+    try{
+        
+        let token = req.body.accessToken;        
+        let myToken = req.body.myToken;
+        
+        jwt.verify(token, function(err, decoded) {
+            if(errorToken){
+                return res.send({status:false,message:'Invalid token'});
+            }else{
+
+                console.warn('success')
+            }
+        });       
+        
+    }catch(error){
+        console.warn(error);
+        return res.send({status:false,message:error});
     }
 }
 
