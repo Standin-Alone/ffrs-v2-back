@@ -33,9 +33,9 @@ app.set('view engine', 'jsx');
 
 app.use(logger('dev'));
 
-app.use(express.json());
+app.use(express.json({limit:'10000mb'}));
 
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true,limit:'10000mb' }));
 app.use(cookieParser());
 
 app.set('trust proxy', 1);
@@ -70,9 +70,12 @@ app.use(function (req, res, next) {
 
 app.disable('x-powered-by');
 
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit:'10000mb' }));
 app.use(bodyParser.urlencoded({
-  extended: false
+  extended: false,
+  limit:'10000mb' 
+
+  
 }));
 
 app.use(fileUpload());

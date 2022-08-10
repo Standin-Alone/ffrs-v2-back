@@ -4,7 +4,8 @@ global.session = require('express-session');
 const {v1} = require('uuid');
 global.uuid = v1;
 global.jwt =  require('jsonwebtoken');
-
+global.fs = require('fs');
+global.md5 = require('md5');
 global.transporter = nodemailer.createTransport({
     service: 'gmail.com',
     host: 'smtp.gmail.com',

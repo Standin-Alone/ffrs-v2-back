@@ -16,7 +16,7 @@ methods.login  = async (req,res)=>{
         let password  =req.body.password;
 
         
-        let generateToken = jwt.sign({ foo: 'secret' }, uuid(),{ expiresIn: "2h"});
+        let generateToken = jwt.sign({ foo: 'secret' }, uuid(),{ expiresIn: "1m"});
 
         
 
